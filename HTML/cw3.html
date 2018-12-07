@@ -6,10 +6,14 @@
 	<title>Tytuł</title>
 	<meta http-equiv="Content-Type"
 	content="application/xhtml+xml; charset=UTF-8"/>
+	<link rel="stylesheet" title = "compact" type="text/css" href="style1.css"/>
+	<link rel="stylesheet" title = "alternate" type="text/css" href="style2.css"/>
+	<link rel="stylesheet" title = "compact" type="text/css" href="print.css"/>
 </head>
 <body>
-
-	<div>
+	<h1 id="title">Ćwiczenie 3</h1>
+	<div id="hidden"><p>Menu</p></div>
+	<div id = "menu">
 		<ul>
 			<li><a href="cw1.html">Ćwiczenie 1</a></li>
 			<li><a href="cw2.html">Ćwiczenie 2</a></li>
@@ -22,10 +26,10 @@
 		</ul>
 	</div>
 
-	<div>
-
-		<h1 id ="tab"> Sekcja pierwsza - tabela </h1>
-		<table border = "1">
+	<div id="content">
+		<h2 id ="tab"> Sekcja pierwsza - tabela </h2>
+		<table>
+			<col width="20"/>
 			<thead>
 				<tr>
 					<th>Kolumna 1</th>
@@ -64,17 +68,17 @@
 			</tbody>
 		</table> 
 
-		<h1 id ="lista"> Sekcja 2 - lista </h1>
+		<h2 id ="lista"> Sekcja 2 - lista </h2>
 
 		<ol>
 			<li> Element 1 </li>
 			<li> Element 2 </li>
 			<li> 
 				Element 3
-				<ul>
+				<ol>
 					<li> drugi poziom </li>
 					<li> drugi poziom </li>
-				</ul>
+				</ol>
 			</li>
 			<li> 
 				Element 4
@@ -92,7 +96,7 @@
 			<li> ... </li>
 		</ol>
 
-		<h1 id ="slownik"> Sekcja 3 - definicje </h1>
+		<h2 id ="slownik"> Sekcja 3 - definicje </h2>
 
 		<dl>
 			<dt>samochód</dt>

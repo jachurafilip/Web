@@ -1,0 +1,162 @@
+body
+{
+	font-family: "Helvetica", Helvetica;
+	font-size: 13px;
+	background-color: #434343;
+
+}
+
+#content
+{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #878787;
+}
+#menu
+{
+	background-color: #aaaaaa;
+	float: left;
+	position: fixed;
+	width: 150px;
+	z-index: 1;
+}
+#title
+{
+	width: 100%;
+	max-width: 960px;
+	background-color: #ababab;
+	text-align: center;
+	margin: auto;
+}
+
+h1
+{
+	color: blue;
+	letter-spacing: 2mm;
+	width: 100%;
+}
+h2
+{
+	color: red;
+}
+h3
+{
+	color: 	#A1E2C2;
+}
+p
+{
+	text-indent: 2cm;
+}
+table
+{
+	background-color: blue;
+	border: 3mm ridge red;
+	border-collapse: collapse;
+}
+col
+{
+	background: pink;
+}
+th,td
+{
+	border: 1mm solid;
+
+}
+img.obr1
+{
+	float: left;
+}
+img.obr2
+{
+	float: right;
+}
+
+
+thead
+{
+	font-size: 20px;
+	font-family: "Courier New";
+	background-color: #987654;
+	text-transform: uppercase;
+}
+
+ol
+{
+	list-style: upper-roman;
+}
+ol ol 
+{
+	list-style: lower-roman;
+}
+ol ol ol
+{
+	list-style: lower-greek;
+}
+
+p::first-letter
+{
+	font-size: 24px;
+	color: black;
+	font-weight: 600;
+}
+#menu li
+{
+	list-style-type: none;
+}
+
+#menu a
+{
+	color: black;
+	text-decoration: none;
+	cursor: default;
+}
+#menu a:hover
+{
+	color: blue;
+}
+
+#hidden
+{
+	position:fixed;
+	top:0px;
+	display: none;
+	z-index: 2;
+	width: 100%;
+	background-color: #6C5B5B;
+	float:left;
+	height:40px;
+	overflow:visible;
+
+}
+#hidden p
+{
+	font-size: 20px;
+	text-align: center;
+	margin: auto;
+
+}
+#hidden:hover + #menu, #menu:hover{
+	clear: both;
+	display:block;
+}
+@media screen and (max-width: 800px)
+{
+	#hidden
+	{
+		display: block;
+	}
+	#menu
+	{
+		display: none;
+		position: fixed;
+		top: 40px;
+		left: 50%;
+		transform: translateX(-50%); 
+	}
+	#title
+	{
+		margin-top: 40px;
+	}
+
+}
