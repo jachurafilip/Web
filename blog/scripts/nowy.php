@@ -1,5 +1,5 @@
 <?php
-
+require '../helpers/redirect.php';
 $blog_root='../blogs/';
 
 if($_SERVER['REQUEST_METHOD']=='POST')

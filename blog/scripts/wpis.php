@@ -70,7 +70,8 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         if(is_uploaded_file($files['tmp_name'][$i]))
         {
-            move_uploaded_file($files['tmp_name'][$i],'../blogs/'.$blogname.'/'.$nazwa.($i+1).substr($files['name'][$i],-4,4));
+            $name = explode('.',$files['name'][$i]);
+            move_uploaded_file($files['tmp_name'][$i],'../blogs/'.$blogname.'/'.$nazwa.($i+1).'.'.$name[count($name)-1]);
         }
     }
 
