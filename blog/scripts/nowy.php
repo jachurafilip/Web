@@ -16,10 +16,18 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         mkdir($blog_root.$data['blog_name']);
         $user_file = fopen($blog_root.$data['blog_name'].'/info','w');
-        fwrite($user_file,$data['username']."\n");
-        fwrite($user_file,$data['password']."\n");
-        fwrite($user_file,$data['desc']);
-        fclose($user_file);
+        if(flock($user_file,LOCK_EX))
+        {
+            fwrite($user_file, $data['username'] . "\n");
+            fwrite($user_file, $data['password'] . "\n");
+            fwrite($user_file, $data['desc']);
+            flock($user_file,LOCK_UN);
+            fclose($user_file);
+        }
+        else
+        {
+            redirect('../views/LockNotAcquired.php');
+        }
 
 
     }

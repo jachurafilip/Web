@@ -16,6 +16,7 @@
         <input type="hidden" name="post" value="<?php echo $_GET['post']; ?>">
         <input type="hidden" name="blog" value="<?php echo $_GET['blog']; ?>">
         <input type="submit" value = "Wyślij">
+        <input type="reset" value="Reset">
 
     </form>
 

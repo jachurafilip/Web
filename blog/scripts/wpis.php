@@ -51,8 +51,15 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         $nazwa = $nazwa.str_pad($number,2,'0',STR_PAD_LEFT);
     }
     $plik = fopen('../blogs/'.$blogname.'/'.$nazwa,'w');
-    fwrite($plik,$data['post']);
-    fclose($plik);
+    if(flock($plik,LOCK_EX)) {
+        fwrite($plik, $data['post']);
+        fclose($plik);
+        flock($plik,LOCK_UN);
+    }
+    else
+    {
+        redirect('../views/LockNotAcquired.php');
+    }
 
     $files =
         [

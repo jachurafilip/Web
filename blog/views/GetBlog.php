@@ -47,6 +47,5 @@ foreach (new DirectoryIterator('../blogs/'.$_GET['nazwa']) as $post) {
 }
 ?>
 
-<a href="../views/index.php">Powrót do strony głównej</a>
 
 <?php require 'footer.php' ?>

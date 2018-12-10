@@ -22,6 +22,7 @@
         <input type="file" name="files[]"/>
         <input type="file" name="files[]"/>
         <input type="submit" value = "Wyślij"/>
+        <input type="reset" value="Reset">
 
     </form>
     <h3><?php echo $err;?></h3>

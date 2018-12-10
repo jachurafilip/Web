@@ -5,6 +5,7 @@
 <form action="../scripts/blog.php" method="GET">
    Nazwa: <input type="text" name="nazwa"/>
     <input type="submit" value="Szukaj!"/>
+    <input type="reset" value="Reset">
 </form>
 
 
