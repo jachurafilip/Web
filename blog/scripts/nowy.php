@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             fwrite($user_file, $data['desc']);
             flock($user_file,LOCK_UN);
             fclose($user_file);
+            redirect('../views/BlogCreated.php');
         }
         else
         {

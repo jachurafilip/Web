@@ -9,7 +9,7 @@
         Password: <input type="password" name="password"><br/>
         Description: <textarea name="description" cols="30" rows="10"> </textarea><br/>
         <input type="submit" value = "Wyślij">
-        <input type="reset" value="Reset">
+        <input type="reset" value="Wyczyść">
 
     </form>
 
