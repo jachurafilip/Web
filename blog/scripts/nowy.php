@@ -12,23 +12,19 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             'desc'=>trim($_POST['description'])
         ];
 
+	$sem_blog = sem_get(2222);
+	sem_acquire($sem_blog);
+
     if(!file_exists($blog_root.$data['blog_name']))
     {
         mkdir($blog_root.$data['blog_name']);
         $user_file = fopen($blog_root.$data['blog_name'].'/info','w');
-        if(flock($user_file,LOCK_EX))
-        {
             fwrite($user_file, $data['username'] . "\n");
             fwrite($user_file, $data['password'] . "\n");
             fwrite($user_file, $data['desc']);
-            flock($user_file,LOCK_UN);
             fclose($user_file);
             redirect('../views/BlogCreated.php');
-        }
-        else
-        {
-            redirect('../views/LockNotAcquired.php');
-        }
+       
 
 
     }
@@ -36,6 +32,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         require '../views/BlogExists.php';
     }
+	sem_release($sem_blog);
 
 }
 else

@@ -44,6 +44,10 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     $number = 0;
     $nazwa = substr($data['date'],0,4).substr($data['date'],5,2).substr($data['date'],8,2)
         .substr($data['hour'],0,2).substr($data['hour'],3,2).date('s',time()).str_pad($number,2,'0',STR_PAD_LEFT);
+	
+	$sem_post =sem_get(123456);
+	sem_acquire($sem_post);
+
     while(file_exists('../blogs/'.$blogname.'/'.$nazwa))
     {
         $number++;
@@ -51,21 +55,18 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         $nazwa = $nazwa.str_pad($number,2,'0',STR_PAD_LEFT);
     }
     $plik = fopen('../blogs/'.$blogname.'/'.$nazwa,'w');
-    if(flock($plik,LOCK_EX)) {
         fwrite($plik, $data['post']);
         fclose($plik);
-        flock($plik,LOCK_UN);
-    }
-    else
-    {
-        redirect('../views/LockNotAcquired.php');
-    }
+
+	sem_release($sem_post);
+       
 
     $files =
         [
           'tmp_name'=>$_FILES['files']['tmp_name'],
           'name'=>$_FILES['files']['name']
         ];
+
     for($i = 0; $i<3; $i++)
     {
         if(is_uploaded_file($files['tmp_name'][$i]))
